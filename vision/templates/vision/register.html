@@ -1,0 +1,14 @@
+{% extends 'vision/layout.html' %}
+
+{% block content %}
+
+		<form action="register" method="post" class="post-form">
+			{% csrf_token %}
+			<input type="text" placeholder="username" name="username">
+		    <input type="hidden" name="first_name" value="default">
+			<input type="hidden" name="last_name" value="default">
+			<input type="email" placeholder="EMail" name="email">
+			<input type="password" placeholder="Password" name="password1" >
+			<input type="password" placeholder="Password" name="password2" >
+			<input type="submit" value="KAYDOL" />
+{% endblock %}

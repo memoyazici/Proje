@@ -1,0 +1,29 @@
+{% extends 'vision/layout.html' %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="post">
+        <h1>{{ post.title }}</h1>
+		<img src="{{post.image.url}}" height="350" width="350">
+        <p>{{ post.text|linebreaksbr }}</p>
+		{% if post.author == user.id%}
+		<a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">SiL<span class="glyphicon glyphicon-remove"></span></a>
+		{% endif %}
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="col-md-12">
+	Labels detected
+		{% for label in labels %}
+			<li>{{label.description}}</li>
+		{% endfor %}
+	</div>
+	
+	<div class="col-md-12">
+	Objects detected
+		{% for object in objects %}
+			<li>{{object.name}}</li>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
